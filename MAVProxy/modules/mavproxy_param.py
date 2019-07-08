@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 '''param command handling'''
 
-import time, os, fnmatch, time, struct
+import time, os, fnmatch, time, struct, pdb
 from pymavlink import mavutil, mavparm
 from MAVProxy.modules.lib import mp_util
 from MAVProxy.modules.lib import mp_module
@@ -105,14 +105,15 @@ class ParamState:
             if master is None:
                 return
             if len(self.mav_param_set) == 0:
-                master.param_fetch_all()
+                # master.param_fetch_all()
+                pass
             elif self.mav_param_count != 0 and len(self.mav_param_set) != self.mav_param_count:
                 if master.time_since('PARAM_VALUE') >= 1 or force:
                     diff = set(range(self.mav_param_count)).difference(self.mav_param_set)
                     count = 0
                     while len(diff) > 0 and count < 10:
                         idx = diff.pop()
-                        master.param_fetch_one(idx)
+                        # master.param_fetch_one(idx)
                         if self.fetch_set is None:
                             self.fetch_set = set()
                         self.fetch_set.add(idx)
@@ -238,7 +239,7 @@ class ParamState:
             return
         if args[0] == "fetch":
             if len(args) == 1:
-                master.param_fetch_all()
+                # master.param_fetch_all()
                 self.mav_param_set = set()
                 print("Requested parameter list")
             else:
