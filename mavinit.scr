@@ -1,0 +1,7 @@
+set moddebug 2
+param preload mav.parm
+module load graph
+@graph timespan 30
+@alias add g graph
+@alias add gbatt g SYS_STATUS.current_battery
+@alias add gload g SYS_STATUS.load

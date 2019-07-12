@@ -1,7 +1,7 @@
 description: >
-  Support for the Logitech F310 joystick in "D" mode.
+  Support for the Logitech F310 joystick in "X" mode.
 match:
-  - Logitech Logitech Dual Action
+  - Logitech Logitech Gamepad F310
 controls:
   - channel: 1
     type: axis
@@ -11,11 +11,11 @@ controls:
     id: 3
   - channel: 3
     type: axis
-    id: 1
+    id: 0
     invert: true
   - channel: 4
     type: axis
-    id: 0
+    id: 1
 
   # This maps the A, B, X, and Y buttons onto channel 5, providing
   # a convenient way to select between four different flight modes.

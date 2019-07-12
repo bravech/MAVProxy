@@ -93,7 +93,8 @@ class ParamState:
                     self.mav_param.save(os.path.join(self.logdir, self.parm_file), '*', verbose=True)
                 self.fetch_set = None
             if self.fetch_set is not None and len(self.fetch_set) == 0:
-                self.fetch_check(master, force=True)
+                pass
+                # self.fetch_check(master, force=True)
         elif m.get_type() == 'HEARTBEAT':
             if m.get_srcComponent() == 1:
                 # remember autopilot types so we can handle PX4 parameters
@@ -101,7 +102,7 @@ class ParamState:
 
     def fetch_check(self, master, force=False):
         '''check for missing parameters periodically'''
-        if self.param_period.trigger() or force:
+        if self.param_period.trigger() or force:    
             if master is None:
                 return
             if len(self.mav_param_set) == 0:
@@ -247,14 +248,14 @@ class ParamState:
                 pname = args[1].upper()
                 for p in self.mav_param.keys():
                     if fnmatch.fnmatch(p, pname):
-                        master.param_fetch_one(p)
+                        # master.param_fetch_one(p)
                         if p not in self.fetch_one:
                             self.fetch_one[p] = 0
                         self.fetch_one[p] += 1
                         found = True
                         print("Requested parameter %s" % p)
                 if not found and args[1].find('*') == -1:
-                    master.param_fetch_one(pname)
+                    # master.param_fetch_one(pname)
                     if pname not in self.fetch_one:
                         self.fetch_one[pname] = 0
                     self.fetch_one[pname] += 1
@@ -421,7 +422,7 @@ class ParamModule(mp_module.MPModule):
         self.check_new_target_system()
         sysid = self.get_sysid()
         self.pstate[sysid].vehicle_name = self.vehicle_name
-        self.pstate[sysid].fetch_check(self.master)
+        # self.pstate[sysid].fetch_check(self.master)
 
     def cmd_param(self, args):
         '''control parameters'''

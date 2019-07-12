@@ -1,0 +1,8 @@
+/usr/local/lib/python2.7/dist-packages/MAVProxy-1.8.8-py2.7.egg
+/usr/local/bin/mavflightview.py
+/usr/local/bin/MAVExplorer.py
+/usr/local/bin/mp_tile.py
+/usr/local/bin/mp_slipmap.py
+/usr/local/bin/mavproxy.py
+/usr/local/bin/pasteurize
+/usr/local/bin/futurize
