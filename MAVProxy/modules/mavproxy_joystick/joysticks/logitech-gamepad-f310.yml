@@ -1,11 +1,11 @@
 description: >
   Support for the Logitech F310 joystick in "X" mode.
 match:
-  - Logitech Logitech Gamepad F310
+  - Logitech Gamepad F3
 controls:
   - channel: 1
     type: axis
-    id: 2
+    id: 4
   - channel: 2
     type: axis
     id: 3
