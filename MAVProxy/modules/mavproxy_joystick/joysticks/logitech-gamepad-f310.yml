@@ -1,19 +1,19 @@
 description: >
   Support for the Logitech F310 joystick in "X" mode.
 match:
-  - Logitech Gamepad F3
+  - Logitech Gamepad F310
 controls:
-  - channel: 1
+  - channel: 1 # 
     type: axis
     id: 4
-  - channel: 2
+  - channel: 2 #
     type: axis
     id: 3
-  - channel: 3
+  - channel: 3 #
     type: axis
     id: 0
     invert: true
-  - channel: 4
+  - channel: 4 # yaw ?
     type: axis
     id: 1
 
@@ -24,13 +24,13 @@ controls:
     type: multibutton
     buttons:
       - id: 0
-        value: 1200 # Hold Depth, X
+        value: 1200 # A, Nothing
       - id: 1
-        value: 1300 # Nothing, A
+        value: 1300 # B, Manual 
       - id: 2
-        value: 1400 # Manual, B
+        value: 1400 # X, Depth Hold
       - id: 3
-        value: 1500 # Stabilize, Y
+        value: 1500 # Y, Stabilize
 
   # A hat operates like a toggle switch.  When an axis goes positive,
   # it sets the `high` value, and when an axis goes negative it sets the
