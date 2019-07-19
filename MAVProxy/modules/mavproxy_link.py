@@ -8,6 +8,7 @@
 
 from pymavlink import mavutil
 import time, struct, math, sys, fnmatch, traceback, json
+import os
 
 from MAVProxy.modules.lib import mp_module
 from MAVProxy.modules.lib import mp_util
@@ -456,6 +457,10 @@ class LinkModule(mp_module.MPModule):
             if m.text != self.status.last_apm_msg or time.time() > self.status.last_apm_msg_time+2:
                 (fg, bg) = self.colors_for_severity(m.severity)
                 self.mpstate.console.writeln("APM: %s" % mp_util.null_term(m.text), bg=bg, fg=fg)
+                duration = 1  # seconds
+                freq = 440  # Hz
+                # Must have sox install > sudo apt install sox
+                os.system('play -nq -t alsa synth {} sine {}'.format(duration, freq))
                 self.status.last_apm_msg = m.text
                 self.status.last_apm_msg_time = time.time()
 
