@@ -5,6 +5,10 @@ MAVProxy
 
 This is a MAVLink ground station written in python. 
 
+On sStart: 
+Load parameters --> param preload mav.parm
+Load modules --> resett, manual, pressure
+
 Please see http://ardupilot.github.io/MAVProxy/ for more information
 
 This ground station was developed as part of the CanberraUAV OBC team

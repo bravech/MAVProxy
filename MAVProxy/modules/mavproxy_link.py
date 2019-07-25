@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# Must have sox installed > sudo apt install sox
 '''enable run-time addition and removal of master link, just like --master on the cnd line'''
 ''' TO USE:
     link add 10.11.12.13:14550

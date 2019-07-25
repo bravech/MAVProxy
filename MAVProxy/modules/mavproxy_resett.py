@@ -6,9 +6,9 @@ import time, os
 from MAVProxy.modules.lib import mp_module
 from pymavlink import mavutil
 
-class ResettModule(mp_module.MPModule):
+class ResetModule(mp_module.MPModule):
 	def __init__(self, mpstate):
-		super(ResettModule, self).__init__(mpstate, "reset", "reset module")
+		super(ResetModule, self).__init__(mpstate, "reset", "reset module")
 		self.add_command('Reset', self.cmd_reset, "reset the pixhawk")
 		self.add_command('resett', self.cmd_resett, "Shows help options")
 
@@ -39,6 +39,6 @@ class ResettModule(mp_module.MPModule):
 
 def init(mpstate):
 	'''initialise module'''
-	return ResettModule(mpstate)
+	return ResetModule(mpstate)
 
 

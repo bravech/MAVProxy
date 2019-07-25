@@ -3,34 +3,34 @@ description: >
 match:
   - Logitech Gamepad F310
 controls:
-  - channel: 1 # 
+  - channel: 5 # forward
     type: axis
     id: 4
-  - channel: 2 #
+  - channel: 6 # lateral
     type: axis
     id: 3
-  - channel: 3 #
+  - channel: 3 # throttle
     type: axis
     id: 0
     invert: true
-  - channel: 4 # yaw ?
+  - channel: 4 # yaw 
     type: axis
     id: 1
 
   # This maps the A, B, X, and Y buttons onto channel 5, providing
   # a convenient way to select between four different flight modes.
   # The PWM values here are for flight modes 1-4.
-  - channel: 5
+  - channel: 1 # pitch
     type: multibutton
     buttons:
       - id: 0
-        value: 1200 # A, Nothing
+        value: 1200 # A
       - id: 1
-        value: 1300 # B, Manual 
+        value: 1300 # B
       - id: 2
-        value: 1400 # X, Depth Hold
+        value: 1400 # X
       - id: 3
-        value: 1500 # Y, Stabilize
+        value: 1500 # Y
 
   # A hat operates like a toggle switch.  When an axis goes positive,
   # it sets the `high` value, and when an axis goes negative it sets the
