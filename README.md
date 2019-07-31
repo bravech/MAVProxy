@@ -7,7 +7,7 @@ This is a MAVLink ground station written in python.
 
 On sStart: 
 Load parameters --> param preload mav.parm
-Load modules --> resett, manual, pressure
+Load modules if not already loaded --> resett, manual, pressure, joystick - usage about these modules can be found by using the module name as a command.
 
 Please see http://ardupilot.github.io/MAVProxy/ for more information
 

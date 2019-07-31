@@ -32,13 +32,13 @@ class ManualModule(mp_module.MPModule):
 	"""Send manual command to move ROV up."""
 	# XYR on range -1000 - 1000. Z on range 0 - 1000.
 	# Max forward speed 1.5 m/s.
-	def cmd_u(self,args = 563):
+	def cmd_u(self,args):
 		x = 0
-		while x < 10:
+		while x < 4:
 			self.master.mav.manual_control_send(self.target_system,
 					0, # x, forward/backward
 					0, # y, left/right 
-					560, # z, thrust
+					700, # z, thrust
 					0, # r, yaw
 					0 #button
 					)
@@ -49,8 +49,8 @@ class ManualModule(mp_module.MPModule):
 		"""Send manual command to move ROV down about 3 feet."""
 	def cmd_d(self,args):
 		x = 0
-		while x < 10:
-			self.master.mav.manual_control_send(self.target_system, 0, 0, 440, 0, 0)
+		while x < 4:
+			self.master.mav.manual_control_send(self.target_system, 0, 0, 300, 0, 0)
 			x += 1
 			time.sleep(.5)
 		print("down ✓")
@@ -58,8 +58,8 @@ class ManualModule(mp_module.MPModule):
 	"""Send manual command to move ROV left 3 feet."""
 	def cmd_l(self,args):
 		x = 0
-		while x < 10:
-			self.master.mav.manual_control_send(self.target_system,0,-125,500,0, 0)
+		while x < 2:
+			self.master.mav.manual_control_send(self.target_system,0,-300,500,0, 0)
 			time.sleep(.5)
 			x += 1
 		print("left ✓")
@@ -67,53 +67,52 @@ class ManualModule(mp_module.MPModule):
 	"""Send manual command to move ROV right about 3 feet."""
 	def cmd_r(self, args):
 		x = 0
-		while x <10:
-			self.master.mav.manual_control_send(self.target_system,0, 125,500, 0, 0)
+		while x <2:
+			self.master.mav.manual_control_send(self.target_system,0, 300,500, 0, 0)
 			x +=1
 			time.sleep(.5)
 		print("right ✓")
 
-	"""Send manual command to move ROV forward about 6 feet."""
 	def cmd_f(self,args):
-		x = 0
-		while x <10:
-			self.master.mav.manual_control_send(self.target_system,250, 0, 500, 0, 0)
-			x += 1
-			time.sleep(.5)
-		print("forward✓")
+		# x = 0
+		# while x < 1:
+		self.master.mav.manual_control_send(self.target_system,600, 0, 500, 0, 0)
+		# x += 1
+		time.sleep(6)
+		print("forward ✓")
+
 
 	"""Send manual command to move ROV backward about 6 feet."""
 	def cmd_b(self,args):
-		x = 0
-		while x < 10:
-			self.master.mav.manual_control_send(self.target_system,-250, 0, 500, 0,0)
-			x += 1
-			time.sleep(.5)
+		# x = 0
+		# while x < 4:
+		self.master.mav.manual_control_send(self.target_system,-600, 0, 500, 0,0)
+		# x += 1
+		time.sleep(6)
 		print("backward ✓")
 
 	"""Send manual command to turn ROV clockwise 90°."""
 	def cmd_cc(self,args):
-		x =0
-		while x < 10:
-			self.master.mav.manual_control_send(self.target_system, 0, 0, 500, -35, 0)
-			x +=1
-			time.sleep(.5)
+		# x =0
+		# while x < 4:
+		self.master.mav.manual_control_send(self.target_system, 0, 0, 500, -300, 0)
+			# x +=1
+		time.sleep(6)
 		print("counter clockwise ✓")
 
 	"""Send manual command to turn ROV counter clockwise 90°"""
 	def cmd_cl(self,args):
-		x = 0
-		while x < 10:
-			self.master.mav.manual_control_send(self.target_system, 0, 0, 500, 35, 0)
-			x += 1
-			time.sleep(.5)
+		# x = 0
+		# while x < 4:
+		self.master.mav.manual_control_send(self.target_system, 0, 0, 500, 300, 0)
+			# x += 1
+		time.sleep(6)
 		print("clockwise ✓")
 
 	"""Moves ROV forward about 6 feet waits for 10 seconds and back about 6 feet."""
 	def cmd_fb(self,args):
-		self.cmd_f(args)
-		time.sleep(10)
 		self.cmd_b(args)
+		self.cmd_f(args)
 
 	"""Moves ROV forward about 6 feet, waits for 10 seconds, turns ROV 180 degrees, and moves forward again 6 feet."""
 	def cmd_script(self,args):

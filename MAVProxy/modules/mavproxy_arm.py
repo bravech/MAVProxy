@@ -95,6 +95,8 @@ class ArmModule(mp_module.MPModule):
             p2 = 0
             if len(args) == 2 and args[1] == 'force':
                 p2 = 2989
+            self.master.mav.rc_channels_override_send(self.target_system,
+                                                           self.target_component, 1500,1500,1500,1500,1500,1500,1500,1500)
             self.master.mav.command_long_send(
                 self.target_system,  # target_system
                 self.target_component,
@@ -107,6 +109,8 @@ class ArmModule(mp_module.MPModule):
                 0, # param5
                 0, # param6
                 0) # param7
+            self.master.mav.rc_channels_override_send(self.target_system,
+                                                           self.target_component, 1500,1500,1500,1500,1500,1500,1500,1500)
             return
 
         if args[0] == "safetyon":

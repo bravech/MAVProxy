@@ -12,11 +12,21 @@ class PressureModule(mp_module.MPModule):
 		'''initialisation code'''
 		self.add_command('press', self.cmd_press, "show pressure information")
 		self.add_command('press_cal', self.cmd_press_cal, "callibrate")
-		self.console.set_status('Pressure', 'Pressure ---', row=3)
+		self.add_command('pressure', self.cmd_pressure, "shows help information")
+		self.console.set_status('Pressure', 'Pressure ---', row=2)
 		self.abspress = -1
 		self.surf_pressure = 1013.25
 		self.press_cal = -1
 		self.depth = 0
+
+
+	def usage(self):
+		'''show help on command line options'''
+		return "Usage: press, press_cal."
+
+	def cmd_pressure(self,args):
+		if len(args) == 0:
+			print(self.usage())
 
 	def cmd_press(self, args):
 		'''show battery levels'''
